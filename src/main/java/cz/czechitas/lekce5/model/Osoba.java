@@ -7,7 +7,15 @@ public class Osoba {
     private String prijmeni;
     private String rodneCislo;
 
+    private SocialniSite socialniSite;
+
     private Telefon telefon;
+
+    private String pracovniEmail;
+    private String soukromýEmail;
+
+    private Adresa adresa;
+
 
     public void setJmeno(String jmeno) {
         Objects.requireNonNull(jmeno);
@@ -35,6 +43,8 @@ public class Osoba {
         this.prijmeni = prijmeni;
     }
 
+
+
     public String getRodneCislo() {
         return rodneCislo;
     }
@@ -52,12 +62,61 @@ public class Osoba {
         this.rodneCislo = rodneCislo;
     }
 
+
+
+
+
     public Telefon getTelefon() {
         return telefon;
     }
 
     public void setTelefon(Telefon telefon) {
         this.telefon = telefon;
+    }
+
+    public SocialniSite getSocialniSite() {
+        return socialniSite;
+    }
+
+    public void setSocialniSite(SocialniSite socialniSite) {
+        this.socialniSite = socialniSite;
+    }
+
+    public String getPracovniEmail() {
+        return pracovniEmail;
+    }
+
+
+    public void setPracovniEmail(String pracovniEmail) {
+        Objects.requireNonNull(pracovniEmail);
+            if (pracovniEmail.isBlank()) {
+                System.err.println("Pracovní email nemůže být prázdný.");
+                return;
+            }
+
+            if (!pracovniEmail.contains("@")) {
+                System.err.println("Pracovní email musí obsahovat @.");
+                return;
+            }
+            this.pracovniEmail = pracovniEmail;
+        }
+
+
+
+    public String getSoukromýEmail() {
+        return soukromýEmail;
+    }
+
+    public void setSoukromýEmail(String soukromýEmail) {
+        this.soukromýEmail = soukromýEmail;
+    }
+
+    public Adresa getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(Adresa adresa) {
+        this.adresa = adresa;
     }
 
     public String toString() {
